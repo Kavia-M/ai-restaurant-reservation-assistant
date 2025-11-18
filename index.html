@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Agent</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for chat interface */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --primary-color: #4f46e5; /* Indigo 600 */
+            --ai-bubble-bg: #e0e7ff; /* Indigo 100 */
+            --user-bubble-bg: #f3f4f6; /* Gray 100 */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Enforce a maximum height for the chat window and enable scrolling */
+        #chat-window {
+            max-height: 70vh; /* Adjust as needed */
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar styling for a cleaner look */
+        #chat-window::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #chat-window::-webkit-scrollbar-thumb {
+            background: #d1d5db; /* Gray 300 */
+            border-radius: 4px;
+        }
+
+        /* AI Message Bubble */
+        .ai-message {
+            background-color: var(--ai-bubble-bg);
+            border-radius: 0.75rem 0.75rem 0.75rem 0; /* Rounded all except bottom-left */
+        }
+
+        /* User Message Bubble */
+        .user-message {
+            background-color: var(--user-bubble-bg);
+            border-radius: 0.75rem 0.75rem 0 0.75rem; /* Rounded all except bottom-right */
+        }
+
+        /* Typing indicator animation */
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+        .dot:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <!-- Main Chat Container -->
+    <div id="chat-app" class="w-full max-w-2xl bg-white shadow-2xl rounded-xl flex flex-col h-[90vh] md:h-[80vh] overflow-hidden">
+        
+        <!-- Header -->
+        <header class="p-4 bg-indigo-600 text-white shadow-lg rounded-t-xl">
+            <h1 class="text-xl font-bold">Reservation AI Agent</h1>
+        </header>
+
+        <!-- Chat Window (Scrollable Messages) -->
+        <div id="chat-window" class="flex-grow p-4 space-y-4">
+            <!-- Initial Greeting Message -->
+            <div id="initial-greeting" class="flex justify-center items-center h-full flex-col text-center p-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fa fa-home">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <h2 class="text-3xl font-extrabold text-gray-800 mb-2">Hello, Customer!</h2>
+                <p class="text-gray-600 mb-6">
+                    I am your Restaurant Reservation Agent for GoodFoods. Click below to start chatting with the AI powered by your backend.
+                </p>
+                <button onclick="startChat()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-[1.02]">
+                    Start Reservation Chat
+                </button>
+            </div>
+
+            <!-- Messages will be injected here -->
+            <div id="messages-container" class="hidden"></div>
+            
+            <!-- Loading indicator for AI response -->
+            <div id="loading-indicator" class="hidden flex items-center space-x-2 py-2">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <span class="text-sm text-gray-500">You are chatting with an AI...</span>
+            </div>
+        </div>
+
+        <!-- Input Form -->
+        <form id="chat-form" class="p-4 border-t border-gray-200 hidden" onsubmit="sendMessage(event)">
+            <div class="flex space-x-3">
+                <input type="text" id="user-input" placeholder="Ask about reservations or availability..." required
+                        class="flex-grow p-5 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                <button type="submit" id="send-button"
+                         class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-5 rounded-lg shadow-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7z"/><path d="M15 15l-6 6"/></svg>
+                </button>
+            </div>
+        </form>
+
+    </div>
+
+
+<!-- This ensures that the JavaScript in your frontend sends messages directly to your running FastAPI server. Since you are using a full origin, you must also ensure your FastAPI backend (`main_app.py`) has CORS configured correctly to allow requests from the origin where `index.html` is being served (which it currently does with `allow_origins=["*"]`). -->
+    <script>
+        // --- Configuration ---
+        const API_ENDPOINT = 'http://127.0.0.1:8000/chat/send'; // Path to your FastAPI endpoint
+        const MESSAGES_CONTAINER = document.getElementById('messages-container');
+        const CHAT_WINDOW = document.getElementById('chat-window');
+        const USER_INPUT = document.getElementById('user-input');
+        const SEND_BUTTON = document.getElementById('send-button');
+        const INITIAL_GREETING_SCREEN = document.getElementById('initial-greeting');
+        const CHAT_FORM = document.getElementById('chat-form');
+        const LOADING_INDICATOR = document.getElementById('loading-indicator');
+
+        /**
+         * Converts markdown-like text to HTML for display.
+         * Basic handling for bold text.
+         * @param {string} text 
+         */
+        function formatMessage(text) {
+            // Simple markdown to HTML for bold text
+            let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            // Basic line break handling
+            html = html.replace(/\n/g, '<br>');
+            return html;
+        }
+
+        /**
+         * Adds a new message bubble to the chat window.
+         * @param {string} text - The message content.
+         * @param {boolean} isAI - True for AI message, false for user message.
+         */
+        function addMessage(text, isAI) {
+            const wrapper = document.createElement('div');
+            wrapper.className = `flex ${isAI ? 'justify-start' : 'justify-end'}`;
+
+            const bubble = document.createElement('div');
+            bubble.className = `max-w-xs md:max-w-md p-3 shadow-md text-gray-800 ${isAI ? 'ai-message' : 'user-message'}`;
+            
+            // Use innerHTML for formatted text (e.g., bold, line breaks)
+            bubble.innerHTML = formatMessage(text);
+            
+            wrapper.appendChild(bubble);
+            MESSAGES_CONTAINER.appendChild(wrapper);
+            
+            // Scroll to the latest message
+            CHAT_WINDOW.scrollTop = CHAT_WINDOW.scrollHeight;
+        }
+
+        /**
+         * Initial function to transition from welcome screen to chat.
+         */
+        function startChat() {
+            INITIAL_GREETING_SCREEN.classList.add('hidden');
+            MESSAGES_CONTAINER.classList.remove('hidden');
+            CHAT_FORM.classList.remove('hidden');
+
+            const initialGreeting = "Hello, Customer! I am your Restaurant Reservation Agent. How may I assist you with your searching restaurants and booking or any other inquiry today?";
+            addMessage(initialGreeting, true);
+        }
+
+        /**
+         * Handles sending the user's message to the backend.
+         * @param {Event} event 
+         */
+        async function sendMessage(event) {
+            event.preventDefault();
+
+            const message = USER_INPUT.value.trim();
+            if (!message) return;
+
+            // 1. Display user message
+            addMessage(message, false);
+            USER_INPUT.value = '';
+
+            // 2. Disable input and show loading
+            USER_INPUT.disabled = true;
+            SEND_BUTTON.disabled = true;
+            LOADING_INDICATOR.classList.remove('hidden');
+            CHAT_WINDOW.scrollTop = CHAT_WINDOW.scrollHeight; // Scroll again to show loading
+
+            try {
+                // 3. API Call to the backend
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // 4. Display AI response
+                const aiResponse = data.response || "Sorry, I received an empty response from the server.";
+                addMessage(aiResponse, true);
+
+            } catch (error) {
+                console.error("Error communicating with the AI backend:", error);
+                addMessage("🚨 Error: Could not connect to the AI service or process the request. Please check the backend (main_app.py) status.", true);
+            } finally {
+                // 5. Re-enable input and hide loading
+                USER_INPUT.disabled = false;
+                SEND_BUTTON.disabled = false;
+                LOADING_INDICATOR.classList.add('hidden');
+                USER_INPUT.focus();
+                CHAT_WINDOW.scrollTop = CHAT_WINDOW.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
