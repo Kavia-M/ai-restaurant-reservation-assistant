@@ -1,5 +1,6 @@
 langchain
 langchain-openai
+mcp
 fastmcp
 fastapi
 uvicorn
