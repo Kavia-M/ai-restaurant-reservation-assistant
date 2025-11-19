@@ -16,7 +16,7 @@ The solution demonstrates:
 
 # 📹 Demo Video
 
-👉 **(To be added in GitHub by the candidate)**
+👉 **In this repo under root folder**
 
 ---
 
@@ -328,15 +328,17 @@ These limitations are known and expected for a take-home assignment using a smal
 
 ```
 .
-├── ai_client.py               # MCP agent + tool calling
-├── mcp_server.py              # Backend tools for LLM
-├── main.py                    # FastAPI entrypoint
-├── models.py                  # SQLAlchemy ORM models
-├── database.py                # DB engine setup
-├── seed_data.py               # 50-restaurant deterministic seed script
-├── index.html                 # Chat-based frontend
-├── reservation_agent_prompt.md# System prompt for the LLM agent
-├── requirements.txt           
+├── ai_client.py                # MCP agent + tool calling
+├── mcp_server.py               # Backend tools for LLM
+├── main.py                     # FastAPI entrypoint
+├── models.py                   # SQLAlchemy ORM models
+├── database.py                 # DB engine setup
+├── seed_data.py                # 50-restaurant deterministic seed script
+├── schema.py                   # Pydantic request schema
+├── index.html                  # Chat-based frontend
+├── reservation_agent_prompt.md # System prompt for the LLM agent
+├── requirements.txt            # requirements to be installed
+├── Demo_video.mp4              # Demo video of AI chat using Frontend
 └── README.md
 ```
 
