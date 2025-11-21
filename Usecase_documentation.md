@@ -6,7 +6,7 @@ To create an intelligent, human‑like conversational AI assistant that automate
 ### Long Term Goal
 To transform this assistant into a **strategic AI reservation platform** that supports GoodFoods' long-term business vision. The long-term system will:
 - Scale across **all current and future GoodFoods outlets**, enabling multi-city and multi-chain operations.
-- Deliver **30–40% reduction in operational workload** via automation of bookings, cancellations & feedback.
+- Deliver **30–40% reduction in operational workload** via automation of bookings, cancellations and feedback.
 - Provide **proactive, agentic AI notifications** (slot reminders, special offers, personalized suggestions).
 - Integrate **Google Maps** to compute real-time travel distance, traffic-aware time estimates, and show map links directly in chat.
 - Enable **location-based restaurant discovery** using user's live location (with consent).
@@ -14,23 +14,26 @@ To transform this assistant into a **strategic AI reservation platform** that su
 - Support **multi-user concurrency** with robust locking, ensuring conflict-free bookings even during peak hours across thousands of simultaneous users.
 - Rely on **more advanced LLMs** for better reasoning, long-context, tool-call stability, autonomy and minimal backend coding effort.
 - **Expand the system vertically** into adjacent industries such as hotels, spas, clinics, coworking spaces, and event venues by reusing the same reservation intelligence, preference engine, availability search logic, and tool-calling framework with minimal re-engineering.
+- **Evolve into a unified travel and hospitality assistant**, where users can plan restaurants, hotels, experiences, and transport together—similar to a personalized AI concierge. The system will continue to prioritize personalized recommendations while allowing clearly labeled, user-optional sponsored listings without affecting the fairness of core suggestions.
 
-This positions GoodFoods as an AI-forward hospitality brand with strong operational control and elevated guest satisfaction.
+This positions GoodFoods as an AI-forward hospitality brand and lays the foundation for a broader, ecosystem-level AI concierge platform capable of serving travelers, diners, and service-seekers within a single intelligent assistant.                    
 
-### Success Criteria — What will make this bot successful?
+### Success Criteria — (Product Performance Targets)
+*The following metrics represent the future performance goals the system aims to achieve as the solution evolves into full production readiness.*
+
 - **30% reduction** in failed reservation attempts through intelligent fallback recommendations (Functions 2–4).
 - **20% increase** in customer satisfaction by offering personalized suggestions using user preferences extracted via Functions 0.1–0.6.
 - **Reduced manual workload** by automating availability search, booking, cancellation, and feedback collection.
 - **High accuracy** in restaurant selection using sentiment-aware ranking defined in Function 1.
-- **Seamless natural interaction**—no exposure of backend or technical details, as enforced by `reservation_agent_prompt.md`.
+- **Seamless natural interaction** — no exposure of backend or technical details, as enforced by `reservation_agent_prompt.md`.
 
-#### Success Criteria — for Long term goal? (Measurable Metrics + ROI)
+#### Success Criteria for Long-Term Goals (Measurable Metrics and ROI)
 
 ##### Business Metrics
 - **25–35% increase** in total reservations within the first 3 months.
-- **15–20% uplift** in table utilization during peak hours through alternate-slot & nearby-branch suggestions.
+- **15–20% uplift** in table utilization during peak hours through alternate-slot and nearby-branch suggestions.
 - **30% higher repeat-customer rate** through preference-aware recommendations.
-- **Positive ROI within 6–9 months** due to reduced manual workload and increased occupancy.
+- **Positive ROI within 12-15 months** due to reduced manual workload and increased occupancy.
 
 ##### Operational Metrics
 - **40–50% reduction** in manual reservation handling by staff.
@@ -38,7 +41,7 @@ This positions GoodFoods as an AI-forward hospitality brand with strong operatio
 - **>99% accuracy** in executing Action/Function flows without breaking.
 - **Real-time availability checks** with zero double-booking incidents.
 
-##### Experience & Engagement Metrics
+##### Experience and Engagement Metrics
 - **>85% first-time success rating** (user completes a booking with no errors).
 - **>90% satisfaction rating** on conversation quality.
 - **20–25% higher engagement** due to proactive, agentic AI reminders.
@@ -54,7 +57,7 @@ This positions GoodFoods as an AI-forward hospitality brand with strong operatio
 - Profit margin per diner = **10%**. so, **₹100 profit per diner**.  
 - **15%** of customers are missed because of the phone-call based booking system.
 
-**Lost Revenue & Lost Profit Due to Missed Bookings**  
+**Lost Revenue and Lost Profit Due to Missed Bookings**  
 - 15% of 2,000 diners/day = **300 missed diners/day**.  
 - Annual missed diners = 300 × 365 = **109,500 diners/year**.  
 - Lost revenue = 109,500 × ₹1,000 = **₹10.95 crore/year**.  
@@ -66,7 +69,7 @@ This positions GoodFoods as an AI-forward hospitality brand with strong operatio
    AI assistants reduce customer-service handling costs by ~**30%** as per case studies and research.  
    For GoodFoods, if 10 reservation staff cost ~₹40 lakh/year collectively, automation could save **₹12 lakh/year** while improving consistency and reducing missed calls.
 
-2. **Increased Revenue from Higher Booking Capture & Occupancy**  
+2. **Increased Revenue from Higher Booking Capture and Occupancy**  
    - According to a published case study by Hostie AI, AI-driven reservation automation achieved up to 760% ROI by recovering missed bookings, capturing after-hours reservations, and reducing operational overheads.
    - For GoodFoods according to our assumptions, with the AI agent handling 24×7 bookings, clarifications, alternate-slot suggestions, and nearby outlet recommendations, even recovering **50%** of the 109,500 missed diners/year yields:  
      - Additional revenue of ~**₹5.47 crore/year**, and  
@@ -77,18 +80,13 @@ This positions GoodFoods as an AI-forward hospitality brand with strong operatio
    Annual cloud + infrastructure cost is **10–20%** of initial investment is **₹8–16 lakh/year**.  
    With combined labour savings + recovered profit (~₹66–70 lakh/year), GoodFoods achieves **payback within 12-15 months**, and maintains strong positive ROI from Year 2 onward.
 
-- **>85% first-time success rating** (user completes a booking with no errors).  
-- **>90% satisfaction rating** on conversation quality.  
-- **20–25% higher engagement** due to proactive, agentic AI reminders.  
-- **30–40% increase** in users accepting alternate or recommended restaurants.
-
-##### Competitive Advantage & Differentiation
+##### Competitive Advantage and Differentiation
 1. **Deep preference intelligence** using Functions 0.1–0.6 — far more personal than typical bots.
 2. **Agentic AI design** that proactively helps users instead of waiting for prompts.
 3. **Superior tool-calling pipeline** — continuous execution after tool results with no drops, reducing engineering overhead.
-4. **Future-ready geospatial capability** through Google Maps integration & location-aware search.
+4. **Future-ready geospatial capability** through Google Maps integration and location-aware search.
 5. **Scalable chain-wide architecture** requiring minimal reconfiguration per outlet.
-To evolve the system into a multi-city, multi-brand reservation intelligence platform capable of powering restaurant chains, hotels, spas, events, and other appointment-driven industries using a standardized LLM-driven tool-based architecture.
+The structure and architecture of the system are inherently vertically scalable, allowing it to extend beyond restaurants into hotels, spas, events, coworking spaces, and other booking and recommendation driven industries, and ultimately evolve into a unified AI platform capable of supporting a full travel and hospitality ecosystem.
 
 ##### Vertical Expansion Potential
 Our solution is designed not only for GoodFoods but also as a **scalable, reusable reservation intelligence framework** that can be expanded into multiple sectors with minimal architectural changes.
@@ -98,13 +96,13 @@ Our solution is designed not only for GoodFoods but also as a **scalable, reusab
    - Functions like cuisine/amenity preference, ranking logic, and tool-based availability checks generalize across any restaurant database.
    - A new chain can simply plug in their restaurant tables, coordinates, and amenities—no workflow redesign needed.
 
-2. Hotels & Resorts (Room + Facility Booking)
+2. Hotels and Resorts (Room + Facility Booking)
    - Replace "tables" with "rooms" or "amenity slots" (spa, pool, gym), using the same tool-calling logic.
    - Agentic AI can suggest off-peak check-in times or upgraded room categories based on user history.
    - Nearby hotel search can use the **existing geospatial + ranking system**.
 
 3. Spas, Salons, Clinics (Appointment Scheduling)
-   - Our Action & Function structure maps perfectly to appointment flows:
+   - Our Action and Function structure maps perfectly to appointment flows:
      - Search availability → suggest next slots → book → cancel → feedback.
    - Preference extraction (Functions 0.x) applies directly to stylist preference, therapist gender preference, service history, etc.
 
@@ -112,33 +110,27 @@ Our solution is designed not only for GoodFoods but also as a **scalable, reusab
    - Booking meeting rooms, event halls, training slots, or desks can reuse the same reservation tool architecture.
    - Multi-seat or multi-room requirements map directly onto "multiple tables" logic.
 
-5. Logistics & Ride Booking (Future Potential)
-   - With Google Maps integration planned, the platform can expand into **distance-aware matching**, enabling use cases like:
-     - Finding the closest pickup hub.
-     - Suggesting nearest available drivers.
-
-6. Unified Travel & Hospitality Assistant (Tourism Super-App Scope)
+5. Unified Travel and Hospitality Assistant (Tourism Super-App Scope)
    - Instead of isolating agents for hotels, spas, and restaurants, the same architecture can scale into a **single unified travel assistant**, similar to MakeMyTrip.
-   - Tourists typically need restaurants, hotels, spas, transport, and event bookings together, making our multi-domain reservation logic naturally suitable for an **integrated AI concierge**.
+   - Tourists typically need restaurants, hotels, spas, and event bookings together, along with Google map integration, making our multi-domain reservation logic naturally suitable for an **integrated AI concierge**.
    - Any restaurant chain, hotel group, or service provider can register to be listed in the assistant, creating a **platform-level ecosystem** instead of a single-company solution.
    - The system can support **sponsored placements** (like Google Play Store's Sponsored Apps), where premium partners pay for priority visibility in recommendations.
 
-7. Ethical & User-First Sponsored Recommendations
+6. Ethical and User-First Sponsored Recommendations
    - While the platform can support **sponsored listings** from restaurants, hotels, spas, or travel partners, these must never override or replace our personalized recommendations.
    - Sponsored options will be shown **clearly labeled as "Sponsored"**, ensuring complete transparency and preserving user trust.
    - They will be recommended **alongside** (not instead of) the best-fit personalized suggestions chosen through our preference engine.
    - The assistant will phrase it naturally, e.g., "Here is a sponsored option you may want to check out," giving the user full freedom to decide.
    - This approach allows monetization through sponsorships *without compromising* the quality, fairness, or accuracy of the user's personalized experience.
 
-
 ###### Why Our Architecture Fits Vertical Expansion
-- **Tool-based modular design:** Each domain needs only domain-specific tools (room availability, spa slot availability, etc.). Actions & Functions remain unchanged.
+- **Tool-based modular design:** Each domain needs only domain-specific tools (room availability, spa slot availability, etc.). Actions and Functions remain unchanged.
 - **Strong preference engine:** Functions 0.1–0.6 allow cross-industry personalization.
-- **Geospatial logic:** Works for restaurants, hotels, clinics, salons, ride-hailing.
+- **Geospatial logic:** Works for restaurants, hotels, clinics, salons etc.,.
 - **Agentic notifications:** Ideal for reminders, follow-ups, proactive upselling.
 - **LLM-driven autonomy:** Reduces the need for custom-coded logic per new vertical.
-- **Unified multi-domain travel ecosystem:** The architecture can evolve into a single AI concierge for tourists, covering restaurants, hotels, spas, events, and transport within one assistant—removing the need for isolated agents in each industry.
-- **Ethical monetization model:** Sponsored recommendations can be integrated safely without harming user trust, as the system can display them clearly as “Sponsored” and only alongside (never replacing) the personalized best-fit recommendations.
+- **Unified multi-domain travel ecosystem:** The architecture can evolve into a single AI concierge for tourists, covering restaurants, hotels, spas, and events within one assistant, removing the need for isolated agents in each industry.
+- **Ethical monetization model:** Sponsored recommendations can be integrated safely without harming user trust, as the system can display them clearly as "Sponsored" and only alongside (never replacing) the personalized best-fit recommendations.
 
 Overall, the system is inherently structured as a **general-purpose reservation intelligence platform**, with the GoodFoods project serving as the initial launch domain.
 
@@ -163,9 +155,9 @@ GoodFoods customers interact with a conversational AI assistant to check availab
 4. **User selects a restaurant** from recommendations and confirms interest in booking.
 5. **If making a reservation:**
    - Bot validates availability for the selected slot
-   - If no contiguous tables available → asks if user is okay with non-contiguous tables
+   - If no contiguous tables available but there are enough tables → asks if user is okay with non-contiguous tables
    - If user accepts non-contiguous → proceeds with booking
-   - If user declines non-contiguous → suggests searching other restaurants
+   - If not enough tables available or the user declines non-contiguous → suggests searching other restaurants
    - Once confirmed, creates the reservation and provides booking confirmation with details (booking ID and table numbers)
    - If user directly requests reservation without search and slot is unavailable → redirects to search flow
 6. **If canceling a booking:**
@@ -203,13 +195,13 @@ stateDiagram-v2
     ValidateAvailability --> ConfirmBooking: Available
     ValidateAvailability --> CheckTableConfig: Unavailable
     CheckTableConfig --> ConfirmBooking: Accept non-contiguous
-    CheckTableConfig --> SearchRestaurants: Decline & search again
+    CheckTableConfig --> SearchRestaurants: Decline and search again
     ConfirmBooking --> BookingComplete: Reservation made
     
     CancelBooking --> VerifyOwnership: Get booking ID
     VerifyOwnership --> CancellationComplete: Authorized
     
-    SubmitFeedback --> GetFeedbackDetails: Get booking ID & rating
+    SubmitFeedback --> GetFeedbackDetails: Get booking ID and rating
     GetFeedbackDetails --> ValidateContent: Check content
     ValidateContent --> VerifyFeedbackOwnership: Valid content
     ValidateContent --> GetFeedbackDetails: Offensive language
@@ -229,18 +221,25 @@ stateDiagram-v2
 ### Bot Features (Key Specifications)  
 *Languages supported: English (current)*
 
-| Feature (what customer cares about) | KBs (what the bot reads/uses) | Tools used (exact names) | Any new features asked (assignment) | Difficulty (G/Y/R) | Integrations needed |
+- The Features are what customer cares about
+- KBs (Knowledge Bases are what the bot reads or uses)
+- Tools used section include the name of the mcp tools used
+- Any new features asked in the Assignment
+- Difficulty level is Green - Easy, Yellow - Medium difficulty, Red - Hard
+- Integrations needed are any integrations needed between various tech and files
+
+| Feature (what customer cares about) | KBs (what the bot reads/uses) | Tools used (Tools name) | Any new features asked (assignment) | Difficulty (G/Y/R) | Integrations needed |
 |---|---:|---|---|:---:|---|
 | 1. Natural Language Understanding — extract date/time/area/guests naturally | None (LLM prompts + conversation history) | _None (LLM only)_ | Friendly, non-technical clarifications; polite re-asks. | Green🟢 | ai_client (LLM), prompt templates. |
 | 2. Intent Detection — reliably detect Search / Book / Cancel / Feedback | None (prompt rules + convo context) | _None (LLM only)_ | Must map to Actions 1–4 exactly per prompt. | Green🟢 | ai_client, conversation state store. |
-| 3. Multi-Stage Availability Search (area & name search + strict/next slots) | Restaurant KB (DB rows), booking state | get_restaurants_in_area, get_restaurants_by_partial_name, check_availability_for_restaurant, get_restaurant_details_by_id | Return availability JSON + likes_summary; follow strict vs next-slot rules. | Yellow🟡 | mcp_server tools, DB (restaurants + reservations), ai_client. |
-| 4. Nearby Restaurant Search & nearest/best selection | Restaurant KB + distance info from nearby tool | five_nearby_restaurants, check_availability_for_restaurant, get_restaurant_details_by_id | Provide nearest_availability, best_availability, distance_km, and likes_summary. | Yellow🟡 | MCP tool (five_nearby), DB, ai_client, geospatial index (for five_nearby). |
+| 3. Multi-Stage Availability Search (area and name search + strict/next slots) | Restaurant KB (DB rows), booking state | get_restaurants_in_area, get_restaurants_by_partial_name, check_availability_for_restaurant, get_restaurant_details_by_id | Return availability JSON + likes_summary; follow strict vs next-slot rules. | Yellow🟡 | mcp_server tools, DB (restaurants + reservations), ai_client. |
+| 4. Nearby Restaurant Search and nearest/best selection | Restaurant KB + distance info from nearby tool | five_nearby_restaurants, check_availability_for_restaurant, get_restaurant_details_by_id | Provide nearest_availability, best_availability, distance_km, and likes_summary. | Yellow🟡 | MCP tool (five_nearby), DB, ai_client, geospatial index (for five_nearby). |
 | 5. Personalized Recommendations / Best-pick ranking | User feedback KB (latest_5_user_feedback), restaurant feedback KB (latest_5_restaurant_feedback), all_amenities/cuisines | get_all_amenities, get_all_cuisines, latest_5_user_feedback, latest_5_restaurant_feedback, get_cuisines_for_restaurant, get_amenities_for_restaurant, get_rating_for_restaurant | Function 1 (pick_best_restaurant_from_list) — likes_summary to explain choice. | Red🔴| ai_client + MCP tools + DB tables for feedback, cuisines, amenities. |
-| 6. Reservation Creation (book + return booking id & table nos) | Booking DB (reservations) | make_reservation_tool, check_availability_for_restaurant (used to verify) | Conflict handling, automatic retry per error rules, insist user save booking id. | Yellow🟡 | mcp_server, database (transactions), ai_client. |
+| 6. Reservation Creation (book + return booking id and table nos) | Booking DB (reservations) | make_reservation_tool, check_availability_for_restaurant (used to verify) | Conflict handling, automatic retry per error rules, insist user save booking id. | Yellow🟡 | mcp_server, database (transactions), ai_client. |
 | 7. Cancellation Flow (verify and cancel) | Booking DB, booking ownership info | cancel_reservation_tool | Verify user authorization; user-only cancellation enforcement. | Green🟢 | mcp_server, database, ai_client. |
-| 8. Feedback Submission + Validation | Booking & feedback KB | submit_feedback_tool, latest_5_user_feedback | Offensive-text re-ask loop; confirm before submit; show rating+text summary. | Yellow🟡 | mcp_server, database, ai_client, content filter (LLM). |
-| 9. Strict Tool-based Reasoning & Continuous Execution | Conversation context KB + action/function rules | (core set) check_availability_for_restaurant, get_restaurant_details_by_id, get_restaurants_in_area, get_restaurants_by_partial_name, five_nearby_restaurants, make_reservation_tool, cancel_reservation_tool, submit_feedback_tool, latest_5_user_feedback, latest_5_restaurant_feedback, get_all_amenities, get_all_cuisines, get_cuisines_for_restaurant, get_amenities_for_restaurant, get_rating_for_restaurant | Must never stop after a tool JSON; continue reasoning and present friendly text only. (Assignment constraint) | Red🔴| ai_client + MCP tool pipeline + robust error handling + DB. |
-| 10. Error Handling & Polite Recovery (apologies, fallbacks, re-asks) | Error messages KB (tool error types) | make_reservation_tool, check_availability_for_restaurant, cancel_reservation_tool, submit_feedback_tool | Silent retry on "Conflict detected", user prompts on input errors, hide technical details. | Yellow🟡 | MCP error codes mapping, ai_client, DB, retry logic. |
+| 8. Feedback Submission + Validation | Booking and feedback KB | submit_feedback_tool, latest_5_user_feedback | Offensive-text re-ask loop; confirm before submit; show rating+text summary. | Yellow🟡 | mcp_server, database, ai_client, content filter (LLM). |
+| 9. Strict Tool-based Reasoning and Continuous Execution | Conversation context KB + action/function rules | (core set) check_availability_for_restaurant, get_restaurant_details_by_id, get_restaurants_in_area, get_restaurants_by_partial_name, five_nearby_restaurants, make_reservation_tool, cancel_reservation_tool, submit_feedback_tool, latest_5_user_feedback, latest_5_restaurant_feedback, get_all_amenities, get_all_cuisines, get_cuisines_for_restaurant, get_amenities_for_restaurant, get_rating_for_restaurant | Must never stop after a tool JSON; continue reasoning and present friendly text only. (Assignment constraint) | Red🔴| ai_client + MCP tool pipeline + robust error handling + DB. |
+| 10. Error Handling and Polite Recovery (apologies, fallbacks, re-asks) | Error messages KB (tool error types) | make_reservation_tool, check_availability_for_restaurant, cancel_reservation_tool, submit_feedback_tool | Silent retry on "Conflict detected", user prompts on input errors, hide technical details. | Red🔴 | MCP error codes mapping, ai_client, DB, retry logic. |
 
 
 
@@ -260,7 +259,7 @@ stateDiagram-v2
 ### **Phase 3 — Cross-Domain Applicability**
 - Reuse same ACTIONS + FUNCTIONS pattern for:
   - Hotels
-  - Salons & spas
+  - Salons and spas
   - Clinics
   - Event venues
 
@@ -283,13 +282,13 @@ stateDiagram-v2
 
 ## Key Challenges
 ### **1. Natural Language Ambiguity**
-Users may give incomplete inputs (e.g., “Book for tonight”). Handling perfect extraction without breaking flow is complex.
+Users may give incomplete inputs (e.g., "Book for tonight"). Handling perfect extraction without breaking flow is complex.
 
 ### **2. Multi-Step Reasoning**
 ACTIONS reference multiple FUNCTIONS, each dependent on tool outputs. The LLM must chain them flawlessly.
 
-### **3. Real-Time Availability & Conflicts**
-Tool errors like “Conflict detected” must trigger internal retries without user involvement.
+### **3. Real-Time Availability and Conflicts**
+Tool errors like "Conflict detected" must trigger internal retries without user involvement.
 
 ### **4. Ranking Logic Complexity**
 Function 1 prioritization combines cuisines, amenities, sentiment, rating — making reasoning heavy for smaller models.
@@ -307,7 +306,7 @@ Large restaurant datasets require:
 - Fast MCP I/O
 - Optimized DB queries
 
-### **7. Safety & Offensive Feedback Handling**
+### **7. Safety and Offensive Feedback Handling**
 Action 4 requires repeated validation for inappropriate language.
 
 ---
@@ -344,7 +343,7 @@ Action 4 requires repeated validation for inappropriate language.
 10. [Deloitte – AI Workforce Automation Impact](https://www2.deloitte.com/global/en/insights)  
    Supports ~30% labour cost reduction through automation adoption.
 
-11. [SumatoSoft – AI Development & Cloud Cost Analysis](https://sumatosoft.com/blog/ai-development-costs)  
+11. [SumatoSoft – AI Development and Cloud Cost Analysis](https://sumatosoft.com/blog/ai-development-costs)  
    Supports annual cloud/maintenance cost estimate of 10–20% of initial build cost.
 
 12. [Biz4Group – Virtual Assistant Cost Guide](https://www.biz4group.com/blog/ai-virtual-assistant-development-cost)  
