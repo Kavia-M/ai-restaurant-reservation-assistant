@@ -224,11 +224,11 @@ stateDiagram-v2
 - The Features are what customer cares about
 - KBs (Knowledge Bases are what the bot reads or uses)
 - Tools used section include the name of the mcp tools used
-- Any new features asked in the Assignment
+- Any new features asked in the requirements
 - Difficulty level is Green - Easy, Yellow - Medium difficulty, Red - Hard
 - Integrations needed are any integrations needed between various tech and files
 
-| Feature (what customer cares about) | KBs (what the bot reads/uses) | Tools used (Tools name) | Any new features asked (assignment) | Difficulty (G/Y/R) | Integrations needed |
+| Feature (what customer cares about) | KBs (what the bot reads/uses) | Tools used (Tools name) | Any new features asked (requirements) | Difficulty (G/Y/R) | Integrations needed |
 |---|---:|---|---|:---:|---|
 | 1. Natural Language Understanding — extract date/time/area/guests naturally | None (LLM prompts + conversation history) | _None (LLM only)_ | Friendly, non-technical clarifications; polite re-asks. | Green🟢 | ai_client (LLM), prompt templates. |
 | 2. Intent Detection — reliably detect Search / Book / Cancel / Feedback | None (prompt rules + convo context) | _None (LLM only)_ | Must map to Actions 1–4 exactly per prompt. | Green🟢 | ai_client, conversation state store. |

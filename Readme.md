@@ -1,8 +1,7 @@
 # **AI-Driven Restaurant Reservation System**
 
-### *Take-Home Assignment – Sarvam AI (GenAI Engineer)*
+This repository contains an end-to-end **AI-powered restaurant reservation system**.
 
-This repository contains an end-to-end **AI-powered restaurant reservation system** built as part of the take-home assignment for the **GenAI Engineer** role.
 The solution demonstrates:
 
 * LLM-based intent understanding
@@ -297,7 +296,7 @@ Assistant: Sure! Please share a rating from 1 to 5 and your comments.
 * UI is simplistic and not production-grade
 * No authentication layer
 
-These limitations are known and expected for a take-home assignment using a small local model.
+These limitations are known and expected for a project using a small local model.
 
 ---
 
@@ -352,5 +351,3 @@ This project demonstrates a **production-style GenAI reservation agent** with st
 * tool integration,
 * system design,
 * and business strategy thinking.
-
-It aligns closely with the evaluation criteria for the **GenAI Engineer** role.

@@ -28,7 +28,7 @@ from models import (
 # high level:
 # - Kept server-side logic deliberately minimal: pure DB queries and deterministic helpers only.
 # - Replaced older model names (UserFeedback -> Feedback) to match current models.py.
-# - Implemented explicit, well-documented tools required by the assignment (1..11 list + helpers).
+# - Implemented explicit, well-documented tools required (1..11 list + helpers).
 # - All NLP, sentiment, preference inference, and ranking logic remain on client/agent (services.py / Ollama).
 # - Datetimes are handled as timezone-aware IST where possible; ISO strings are used for I/O.
 
